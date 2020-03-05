@@ -1,63 +1,59 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <algorithm>
-/*
-int main(){
-    using namespace std;
-    int i = 0;
-    string arr1[50]; //array intialization 
+#include <string> /*
+using namespace std;
+void sort(string a[], int n, int b[]) {
+    string names;
+    int temp;
+    for (int last = n - 1; last > 0; last--) {
+        for (int i = 0; i < last; i++) {
+            if (a[i] < a[i + 1]) {
+                names = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = names;
+                temp = b[i];
+                b[i] = b[i + 1];
+                b[i + 1] = temp;
+
+            }
+        }
+    }
+}
+void arrayprint(string a[], int size, int b[]) {
+    for (int x = 0; x < size; x++) {
+        cout << a[x] << endl;
+        cout << b[x] << endl;
+    }
+
+}
+int main() {
+    string arr1[50];
     int arr2[50];
-    string arr3[50];
-    
+    int n = sizeof(arr1) / sizeof(arr1[0]);
     try {
-        ifstream file("names.data.txt");//file retreiveal 
+        ifstream file("names.data");//file retreiveal 
+        ofstream outfile("names.data");
+
         if (!file.good()) throw string("Cannot open data file "); // if file (not good) throw alert
-        cout << " file openned successfully\n";
-        for (int i = 0; i <= 50; i++) {
-            if (i > 50) throw string("*** Exception *** array capacity exceeded ");
-            file >> arr1[i];
+        for (int i = 0; i < 49; i++) {
+            cin >> arr1[i];
             arr2[i] = 1001 + i;
-            int id = arr2[i];
-            //string sid = to_string(id);
-           //arr1[i] = arr1[i] + "\n" + sid;
+            sort(arr1, n, arr2);
 
+           
         }
-        for (int x = 0; x <= i; x++) {
-            //sort(arr1[0], arr1[50]);
-            cout << arr1[x] << endl;
+        //sort(arr1, n);
+        cout << endl;
+        arrayprint(arr1, n, arr2);
+        // arrayprint(arr2, n);
 
-
-            /*
-              int z = x + 1;
-             string str = arr1[x];
-             string str_2 = arr1[z];
-              int c= str.size();
-             int c_2 = str_2.size();
-             char cstr[str.size + 1];
-             char cstr2[str_2.size + 1];
-             int test = strcmp(cstr, cstr2);
-             
-             
-             cout << c << endl; 
-             if (test >0) {
-                 cout << arr1[x];
-                 cout << arr1[i] << endl;
-                 i++;
-             } 
-             
-
-        }
-        
-        cout << i << " records processed" << endl;
-      
+        cout << n << "files " << endl;
+        file.close();
     }
     catch (string alert) {
         cout << alert << endl;
 
-    
     }
     return 0;
 }
-
 */
